@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
             [
                 'user_id' => '2e340dda-d7a7-4f00-a4a6-753031d86c14',
                 'user_name' => 'Tridiktya Hardani Putra', //mengirimkan data ke view about
-                'user_username' => 'tridik123',
-                'user_email' => 'tridiktya@gmail.com',
-                'user_password' => bcrypt('password'),
+                'username' => 'tridik123',
+                'email' => 'tridiktya@gmail.com',
+                'password' => bcrypt('password'),
                 'user_role' => 'user',
             ]
         );
@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
             [
                 'user_id' => '883d5801-cc55-4a3b-af96-54c18d34a6f4',
                 'user_name' => 'Putra Tridiktya', //mengirimkan data ke view about
-                'user_username' => 'putra123',
-                'user_email' => 'putra@gmail.com',
-                'user_password' => bcrypt('password'),
+                'username' => 'putra123',
+                'email' => 'putra@gmail.com',
+                'password' => bcrypt('password'),
                 'user_role' => 'user',
             ]
         );
@@ -44,9 +44,9 @@ class DatabaseSeeder extends Seeder
             [
                 'user_id' => '4c8d2495-e735-42a4-a274-85a2479b6f2b',
                 'user_name' => 'Admin', //mengirimkan data ke view about
-                'user_username' => 'admin123',
-                'user_email' => 'admin@gmail.com',
-                'user_password' => bcrypt('password'),
+                'username' => 'admin123',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('password'),
                 'user_role' => 'admin',
             ]
         );
