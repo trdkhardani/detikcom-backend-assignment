@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Books\BookController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Middleware\IsAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,12 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 });
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::middleware(IsAdmin::class)->group(function(){
+    Route::prefix('admin')->group(function(){
+        Route::get('/dashboard',[AdminController::class, 'index']);
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
