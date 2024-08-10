@@ -10,8 +10,8 @@ Nama: Tridiktya Hardani Putra
 PT: Institut Teknologi Sepuluh Nopember (ITS) Surabaya
 
 ## Test: Membuat CMS (Content Management System) untuk pengelolaan konten yang berisikan
-- [ ] Login (Admin dan User)
-- [ ] Register
+- [x] Login (Admin dan User)
+- [x] Register
 - [ ] Daftar/List Data Buku
 - [ ] Daftar/List Data Buku terdapat filter berdasarkan Kategori Buku
 - [ ] Action Master Data Buku (Create, Read, Update, Delete dan Upload File)

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Books\BookController;
+use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Middleware\IsAdmin;
 
@@ -27,15 +28,22 @@ use App\Http\Middleware\IsAdmin;
 Route::get('/', [BookController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
-Route::get('/login', [LoginController::class, 'loginPage'])->name('login');
-Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('/login', 'loginPage')->name('login');
+        Route::post('/login', 'authenticate');
+    });
+
+    Route::controller(RegisterController::class)->group(function () {
+        Route::get('/register', 'index');
+        Route::post('/register', 'register');
+    });
 });
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::middleware(IsAdmin::class)->group(function(){
-    Route::prefix('admin')->group(function(){
-        Route::get('/dashboard',[AdminController::class, 'index']);
+Route::middleware(IsAdmin::class)->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index']);
     });
 });
 
