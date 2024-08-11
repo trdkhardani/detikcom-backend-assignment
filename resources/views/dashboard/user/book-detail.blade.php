@@ -28,14 +28,22 @@
 
             <div class="mt-4">
                 <h2>Buku (PDF)</h2>
-                <embed src="{{ asset('storage/' . $book->book_path) }}" type="application/pdf" width="100%" height="600">
+                <embed src="{{ asset('storage/' . $book->book_path) }}" type="application/pdf" width="100%"
+                    height="600">
             </div>
 
-            @if(Auth()->user()->user_role === 'admin')
-            <a href="/books" class="btn btn-primary mt-4">Kembali</a>
-            <a href="/edit-book/{{ $book->book_id }}" class="btn btn-warning mt-4">Edit</a>
+            @if (Auth()->user()->user_role === 'admin')
+                <a href="/books" class="btn btn-primary mt-4">Kembali</a>
+                <a href="/edit-book/{{ $book->book_id }}" class="btn btn-warning mt-4">Edit</a>
+                <form action="/delete-book/{{ $book->book_id }}" method="post" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger mt-4"
+                        onclick="return confirm('Apakah anda yakin ingin mengapus buku {{ $book->book_title }}?')">Hapus
+                        Buku</span></button>
+                </form>
             @else
-            <a href="/uploaded-books" class="btn btn-primary mt-4">Kembali</a>
+                <a href="/uploaded-books" class="btn btn-primary mt-4">Kembali</a>
             @endif
         </div>
     </div>

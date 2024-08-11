@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Books\BookController;
 use App\Http\Controllers\Books\BookDetailController;
 use App\Http\Controllers\Books\CreateBookController;
+use App\Http\Controllers\Books\DeleteBookController;
 use App\Http\Controllers\Books\UpdateBookController;
 use App\Http\Controllers\Books\UploadedBooksController;
 use App\Http\Controllers\Register\RegisterController;
@@ -72,4 +73,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit-book/{book_id}', 'index');
         Route::put('/edit-book/{book_id}', 'updateBook');
     });
+
+    Route::delete('/delete-book/{book_id}', [DeleteBookController::class, 'deleteBook']);
 });

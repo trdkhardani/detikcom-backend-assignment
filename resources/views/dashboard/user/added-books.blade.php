@@ -42,7 +42,11 @@
                             {{-- <p class="card-text">{{ $book->excerpt }}</p> --}}
                             <a href="/book/{{ $book->book_id }}" class="btn btn-primary">Lihat Buku</a>
                             <a href="/edit-book/{{ $book->book_id }}" class="btn btn-warning">Edit Buku</a>
-                            <a href="/delete-book/{{ $book->book_id }}" class="btn btn-danger">Hapus Buku</a>
+                            <form action="/delete-book/{{ $book->book_id }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin mengapus buku {{ $book->book_title }}?')">Hapus Buku</span></button>
+                              </form>
                         </div>
                     </div>
                 </div>
