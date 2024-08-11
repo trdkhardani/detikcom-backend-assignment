@@ -27,7 +27,7 @@
                     <a class="nav-link {{ $active === 'add-category' ? 'active' : '' }}" href="/admin/add-category">Tambah Kategori</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'category' ? 'active' : '' }}" href="/admin/added-categories">List Kategori</a>
+                    <a class="nav-link {{ $active === 'categories-list' ? 'active' : '' }}" href="/admin/categories-list">List Kategori</a>
                 </li>
                 @endif
                 @endauth

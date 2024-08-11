@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ListCategoryController;
+use App\Http\Controllers\Admin\UpdateCategoryController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
@@ -54,6 +56,12 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::middleware(IsAdmin::class)->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index']);
+        Route::get('/categories-list', [ListCategoryController::class, 'index']);
+
+        Route::controller(UpdateCategoryController::class)->group(function(){
+            Route::get('/edit-category/{category_id}', 'index');
+            Route::put('/edit-category/{category_id}', 'updateCategory');
+        });
     });
 });
 

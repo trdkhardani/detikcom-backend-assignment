@@ -23,3 +23,6 @@ PT: Institut Teknologi Sepuluh Nopember (ITS) Surabaya
 - [x] Hak Akses (Privilege) dibatasi hanya dapat membuka, melihat, mengedit dan menghapus Daftar/List Data Buku sesuai dengan data yang dibuat oleh user itu sendiri (kecuali admin)
 
 Final Format: Project dan Database dikumpulkan dalam bentuk .RAR atau .ZIP dalam google drive
+
+### Note 
+Untuk poin g s.d. j, saya asumsikan itu merupakan hak yang dimiliki oleh admin.
