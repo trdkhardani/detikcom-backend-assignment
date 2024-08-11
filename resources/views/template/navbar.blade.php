@@ -24,9 +24,6 @@
                 {{-- Jika yang log in adalah admin --}}
                 @elseif(Auth()->user()->user_role === 'admin')
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'buku' ? 'active' : '' }}" href="/books">List Buku</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ $active === 'add-category' ? 'active' : '' }}" href="/admin/add-category">Tambah Kategori</a>
                 </li>
                 <li class="nav-item">

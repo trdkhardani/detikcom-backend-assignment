@@ -33,17 +33,17 @@ class CreateBookController extends Controller
         ]);
 
         if ($request->file('book_cover_path')) {
-            $booksData['book_cover_path'] = $request->file('book_cover_path')->store('book-covers', 'public'); //mengambil file image dari form create.blade.php dan menyimpannya di folder public/post-images di folder storage
+            $booksData['book_cover_path'] = $request->file('book_cover_path')->store('book-covers', 'public');
         }
 
         if ($request->file('book_path')) {
-            $booksData['book_path'] = $request->file('book_path')->store('book-pdfs', 'public'); //mengambil file image dari form create.blade.php dan menyimpannya di folder public/post-images di folder storage
+            $booksData['book_path'] = $request->file('book_path')->store('book-pdfs', 'public');
         }
 
         $booksData['user_id'] = Auth()->user()->user_id;
 
         Book::create($booksData);
 
-        return redirect('/books')->with('success', 'Buku berhasil ditambahkan!');
+        return redirect('/uploaded-books')->with('success', 'Buku berhasil ditambahkan!');
     }
 }

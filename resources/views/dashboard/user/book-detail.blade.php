@@ -31,7 +31,12 @@
                 <embed src="{{ asset('storage/' . $book->book_path) }}" type="application/pdf" width="100%" height="600">
             </div>
 
+            @if(Auth()->user()->user_role === 'admin')
+            <a href="/books" class="btn btn-primary mt-4">Kembali</a>
+            <a href="/edit-book/{{ $book->book_id }}" class="btn btn-warning mt-4">Edit</a>
+            @else
             <a href="/uploaded-books" class="btn btn-primary mt-4">Kembali</a>
+            @endif
         </div>
     </div>
 </div>

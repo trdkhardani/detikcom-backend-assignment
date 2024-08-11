@@ -2,6 +2,13 @@
 
 @include('template.navbar')
 
+@if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
 {{-- JS untuk filter bar agar langsung ke kategori yang dipilih tanpa klik submit --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -19,12 +26,6 @@
 
 <h1 class="mb-3 text-center">{{ $title }}</h1>
 
-@if (session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-@endif
 {{-- Filter Bar --}}
 <div class="row justify-content-center mb-3">
     <div class="col-md-4">

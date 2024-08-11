@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Books\BookController;
 use App\Http\Controllers\Books\BookDetailController;
 use App\Http\Controllers\Books\CreateBookController;
+use App\Http\Controllers\Books\UpdateBookController;
 use App\Http\Controllers\Books\UploadedBooksController;
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\User\DashboardController;
@@ -66,4 +67,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/uploaded-books', [UploadedBooksController::class, 'index']);
 
     Route::get('/book/{book_id}', [BookDetailController::class, 'index']);
+
+    Route::controller(UpdateBookController::class)->group(function(){
+        Route::get('/edit-book/{book_id}', 'index');
+        Route::put('/edit-book/{book_id}', 'updateBook');
+    });
 });
