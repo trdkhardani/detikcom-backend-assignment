@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CreateCategoryController;
 use App\Http\Controllers\Admin\ListCategoryController;
 use App\Http\Controllers\Admin\UpdateCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,11 @@ Route::middleware(IsAdmin::class)->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index']);
         Route::get('/categories-list', [ListCategoryController::class, 'index']);
+
+        Route::controller(CreateCategoryController::class)->group(function(){
+            Route::get('/add-category', 'index');
+            Route::post('/add-category', 'createCategory');
+        });
 
         Route::controller(UpdateCategoryController::class)->group(function(){
             Route::get('/edit-category/{category_id}', 'index');

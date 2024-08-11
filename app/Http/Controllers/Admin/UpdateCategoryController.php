@@ -12,7 +12,7 @@ class UpdateCategoryController extends Controller
     {
         $category = Category::findOrFail($catId);
 
-        return view('dashboard.admin.category-edit', [
+        return view('dashboard.admin.edit-category', [
             'category' => $category,
             'pageTitle' => 'Edit Kategori',
             'title' => 'Edit Kategori ' . $category->category_name,
