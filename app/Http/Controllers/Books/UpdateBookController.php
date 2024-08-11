@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 
+use Illuminate\Support\Facades\Storage;
+
 class UpdateBookController extends Controller
 {
     public function index($bookId)
@@ -46,10 +48,12 @@ class UpdateBookController extends Controller
         ]);
 
         if ($request->file('book_cover_path')) {
+            Storage::disk('public')->delete($book->book_cover_path); // hapus cover buku
             $updatedBookData['book_cover_path'] = $request->file('book_cover_path')->store('book-covers', 'public');
         }
 
         if ($request->file('book_path')) {
+            Storage::disk('public')->delete($book->book_path); // hapus pdf buku
             $updatedBookData['book_path'] = $request->file('book_path')->store('book-pdfs', 'public');
         }
 
