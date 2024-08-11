@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CreateCategoryController;
 use App\Http\Controllers\Admin\DeleteCategoryController;
+use App\Http\Controllers\Admin\ExportBookController;
 use App\Http\Controllers\Admin\ListCategoryController;
 use App\Http\Controllers\Admin\UpdateCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,8 @@ Route::middleware(IsAdmin::class)->group(function () {
         });
 
         Route::delete('/delete-category/{category_id}', [DeleteCategoryController::class, 'deleteCategory']);
+
+        Route::get('/export-book/{book_id}', [ExportBookController::class, 'exportBook']);
     });
 });
 

@@ -42,6 +42,7 @@
                         onclick="return confirm('Apakah anda yakin ingin mengapus buku {{ $book->book_title }}?')">Hapus
                         Buku</span></button>
                 </form>
+                <a href="/admin/export-book/{{ $book->book_id }}" class="btn btn-success mt-4">Ekspor ke Excel</a>
             @else
                 <a href="/uploaded-books" class="btn btn-primary mt-4">Kembali</a>
             @endif

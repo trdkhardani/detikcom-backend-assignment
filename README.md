@@ -19,7 +19,7 @@ PT: Institut Teknologi Sepuluh Nopember (ITS) Surabaya
 - [x] Daftar/List Data Kategori Buku
 - [x] Action Master Data Kategori Buku (Creat, Read, Update dan Delete)
 - [x] Form Data Buku berisi : Nama Kategori Buku
-- [ ] Export Data (Excel/PDF) dari Data Buku
+- [x] Export Data (Excel/PDF) dari Data Buku
 - [x] Hak Akses (Privilege) dibatasi hanya dapat membuka, melihat, mengedit dan menghapus Daftar/List Data Buku sesuai dengan data yang dibuat oleh user itu sendiri (kecuali admin)
 
 Final Format: Project dan Database dikumpulkan dalam bentuk .RAR atau .ZIP dalam google drive
