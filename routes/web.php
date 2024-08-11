@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Books\BookController;
+use App\Http\Controllers\Books\CreateBookController;
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Middleware\IsAdmin;
@@ -49,4 +50,9 @@ Route::middleware(IsAdmin::class)->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+
+    Route::controller(CreateBookController::class)->group(function(){
+        Route::get('/add-book', 'index');
+        Route::post('/add-book', 'createBook');
+    });
 });

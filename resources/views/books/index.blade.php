@@ -19,7 +19,12 @@
 
 <h1 class="mb-3 text-center">{{ $title }}</h1>
 
-
+@if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 {{-- Filter Bar --}}
 <div class="row justify-content-center mb-3">
     <div class="col-md-4">
@@ -49,9 +54,9 @@
 @if ($books->count())
     <div class="card mb-3">
         @if ($books[0]->book_cover_path)
-            <div style="max-height: 450px; overflow:hidden;">
+            <div class="container-img">
                 <img src="{{ asset('storage/' . $books[0]->book_cover_path) }}"
-                    alt="{{ $books[0]->category->category_name }}" class="img-fluid">
+                    alt="{{ $books[0]->category->category_name }}" class="img-responsive">
             </div>
         @else
             <img src="https://source.unsplash.com/1200x400/?{{ $books[0]->category->category_name }}"
@@ -121,4 +126,19 @@
 <div class="d-flex justify-content-center">
     {{ $books->links() }} {{-- ini adalah fungsi untuk membuat pagination --}}
 </div>
+
+<style>
+    .container-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .img-responsive {
+        max-width: 20%;
+        height: auto;
+        border: 3px solid black;
+    }
+</style>
 </body>

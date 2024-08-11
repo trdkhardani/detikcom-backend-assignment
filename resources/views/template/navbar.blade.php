@@ -9,16 +9,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'buku' ? 'active' : '' }}" href="/">Buku</a>
+                    <a class="nav-link {{ $active === 'buku' ? 'active' : '' }}" href="/books">List Buku</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link " href="/about">About</a>
-                </li> --}}
+                @auth
+                {{-- Jika yang log in adalah user --}}
+                @if(Auth()->user()->user_role === 'user')
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'kategori' ? 'active' : '' }}" href="/kategori">Kategori</a>
+                    <a class="nav-link {{ $active === 'add-book' ? 'active' : '' }}" href="/add-book">Tambah Buku</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $active === 'uploaded-books' ? 'active' : '' }}" href="/uploaded-books">Buku yang Diunggah</a>
                 </li>
 
+                {{-- Jika yang log in adalah admin --}}
+                @elseif(Auth()->user()->user_role === 'admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $active === 'buku' ? 'active' : '' }}" href="/books">List Buku</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $active === 'add-category' ? 'active' : '' }}" href="/admin/add-category">Tambah Kategori</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $active === 'category' ? 'active' : '' }}" href="/admin/added-categories">List Kategori</a>
+                </li>
+                @endif
+                @endauth
             </ul>
 
             <ul class="navbar-nav ms-auto">
@@ -26,7 +41,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Welcome, {{ auth()->user()->username }}! {{-- menampilkan username dari user yang sedang login --}}
+                            Welcome, {{ Auth()->user()->username }}! {{-- menampilkan username dari user yang sedang login --}}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-house-fill"></i>Dashboard</a>
