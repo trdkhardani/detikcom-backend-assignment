@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'buku' ? 'active' : '' }}" href="/books">List Buku</a>
+                    <a class="nav-link {{ $active === 'books' ? 'active' : '' }}" href="/books">List Buku</a>
                 </li>
                 @auth
                 {{-- Jika yang log in adalah user --}}

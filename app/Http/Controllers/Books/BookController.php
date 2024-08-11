@@ -32,7 +32,7 @@ class BookController extends Controller
         return view('books.index', [
             'pageTitle' => 'Buku ',
             'title' => $title,
-            'active' => 'home',
+            'active' => 'books',
             'books' => $books,
             'categories' => $categories,
             // 'currentCategory' => request('category'),

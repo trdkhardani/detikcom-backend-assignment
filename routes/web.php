@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Books\BookController;
+use App\Http\Controllers\Books\BookDetailController;
 use App\Http\Controllers\Books\CreateBookController;
+use App\Http\Controllers\Books\UploadedBooksController;
 use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Middleware\IsAdmin;
@@ -25,6 +27,11 @@ use App\Http\Middleware\IsAdmin;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::view('/', 'home', [
+    'pageTitle' => 'Beranda',
+    'active' => '',
+]);
 
 Route::get('/books', [BookController::class, 'index']);
 
@@ -55,4 +62,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/add-book', 'index');
         Route::post('/add-book', 'createBook');
     });
+
+    Route::get('/uploaded-books', [UploadedBooksController::class, 'index']);
+
+    Route::get('/book/{book_id}', [BookDetailController::class, 'index']);
 });

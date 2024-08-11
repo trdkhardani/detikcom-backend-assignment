@@ -72,7 +72,8 @@
                         class="text-decoration-none">{{ $books[0]->user->user_name }}</a> | Kategori: <a
                         href="/books?category={{ $books[0]->category->category_id }}"
                         class="text-decoration-none">{{ $books[0]->category->category_name }}</a>
-                    {{ $books[0]->created_at->diffForHumans() }}
+                    | {{ $books[0]->created_at->diffForHumans() }}
+                    | Jumlah: {{ $books[0]->book_total }}
                 </small>
             </p>
             {{-- <p class="card-text">{{ $books[0]->excerpt }}</p> --}}
@@ -107,9 +108,11 @@
                                     <small class="text-muted">
                                         Pengunggah: <a href="/books?user={{ $book->user->username }}"
                                             class="text-decoration-none">{{ $book->user->user_name }}</a> | Kategori:
-                                        <a href="/books?category={{ $books[0]->category->category_id }}"
-                                            class="text-decoration-none">{{ $books[0]->category->category_name }}</a>
-                                        {{ $book->created_at->diffForHumans() }} {{-- diffForHumans() adalah fungsi untuk menampilkan waktu yang sudah berlalu --}} </small>
+                                        <a href="/books?category={{ $book->category->category_id }}"
+                                            class="text-decoration-none">{{ $book->category->category_name }}</a>
+                                        | {{ $book->created_at->diffForHumans() }} {{-- diffForHumans() adalah fungsi untuk menampilkan waktu yang sudah berlalu --}}
+                                        | Jumlah: {{ $book->book_total }}
+                                    </small>
                                 </p>
                                 {{-- <p class="card-text">{{ $book->excerpt }}</p> --}}
                                 <a href="/book/{{ $book->book_id }}" class="btn btn-primary">Lihat Buku</a>
@@ -136,9 +139,22 @@
     }
 
     .img-responsive {
-        max-width: 20%;
+        max-width: 40%;
         height: auto;
         border: 3px solid black;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        object-fit: contain;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
     }
 </style>
 </body>
