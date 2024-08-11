@@ -25,7 +25,7 @@ use App\Http\Middleware\IsAdmin;
 //     return view('welcome');
 // });
 
-Route::get('/', [BookController::class, 'index']);
+Route::get('/books', [BookController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
     Route::controller(LoginController::class)->group(function () {

@@ -12,8 +12,8 @@ PT: Institut Teknologi Sepuluh Nopember (ITS) Surabaya
 ## Test: Membuat CMS (Content Management System) untuk pengelolaan konten yang berisikan
 - [x] Login (Admin dan User)
 - [x] Register
-- [ ] Daftar/List Data Buku
-- [ ] Daftar/List Data Buku terdapat filter berdasarkan Kategori Buku
+- [x] Daftar/List Data Buku
+- [x] Daftar/List Data Buku terdapat filter berdasarkan Kategori Buku
 - [ ] Action Master Data Buku (Create, Read, Update, Delete dan Upload File)
 - [ ] Form Data Buku berisi : Judul Buku, Kategori Buku (dropdown), Deskripsi, Jumlah, Upload File Buku (PDF) dan Upload Cover Buku (jpeg/jpg/png)
 - [ ] Daftar/List Data Kategori Buku
