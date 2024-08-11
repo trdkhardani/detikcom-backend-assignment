@@ -15,7 +15,8 @@ class BookDetailController extends Controller
 
         $userId = Auth()->user()->user_id;
 
-        if($book->user->user_id !== $userId){
+        // user yang tidak mengunggah buku tidak bisa mengakses buku tsb. hanya admin yang bisa
+        if($book->user->user_id !== $userId && Auth()->user()->user_role !== 'admin'){
             abort(403);
         }
 
