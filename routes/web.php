@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CreateCategoryController;
+use App\Http\Controllers\Admin\DeleteCategoryController;
 use App\Http\Controllers\Admin\ListCategoryController;
 use App\Http\Controllers\Admin\UpdateCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,8 @@ Route::middleware(IsAdmin::class)->group(function () {
             Route::get('/edit-category/{category_id}', 'index');
             Route::put('/edit-category/{category_id}', 'updateCategory');
         });
+
+        Route::delete('/delete-category/{category_id}', [DeleteCategoryController::class, 'deleteCategory']);
     });
 });
 
